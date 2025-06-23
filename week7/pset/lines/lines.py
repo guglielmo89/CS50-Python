@@ -11,7 +11,7 @@ def main():
         with open(sys.argv[1]) as file:
             print(file)
     except FileNotFoundError:
-        sys.exit("File") 
+        sys.exit("File not found") 
 
 if __name__ == "__main__":
     main()
