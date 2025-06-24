@@ -8,10 +8,18 @@ def main():
         sys.exit("Not a Python file")
 
     try:
-        with open(sys.argv[1]) as file:
-            print(file)
+        with open(f"{sys.argv[1]}", "r") as file:
+            print(read_lines(file))
     except FileNotFoundError:
-        sys.exit("File not found") 
+        sys.exit("File not found")
+
+
+def read_lines(filename):
+    rows = 0
+    for row in filename.readlines():
+        if not row.lstrip().startswith("#") and row.strip() != "":
+            rows += 1
+    return rows
 
 if __name__ == "__main__":
     main()
